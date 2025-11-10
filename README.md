@@ -70,7 +70,7 @@ Capstone Project collaborated with Bloomberg Government
 **Goal**: Let analysts paste a bill context + citation and receive a **grounded label** with supporting span.  
 **Stack**: Azure **Blob Storage** ->  **Text Embeddings** -> **AI Search** (hybrid index) -> **GPT-4o** (playground) with a strict system prompt.
 
-![RAG](assets/rag-design-pattern)
+![RAG](assets/rag-design-pattern.png)
 
 **Steps**
 1. Create **Resource Group** -> **Storage Account** -> **Blob Container**; upload documents + labeled dataset.  
