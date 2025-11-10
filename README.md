@@ -37,7 +37,9 @@ Capstone Project collaborated with Bloomberg Government
 
 ## 🧪 Models & Training
 - **Transformers**: **LegalBERT**, **DistilBERT**.  
-- **Graph context**: **GCN** over a citation graph (nodes=citations; edges=co-mentions) using encoder embeddings + simple structural features.  
+- **Graph context**: **GCN** over a citation graph (nodes=citations; edges=co-mentions) using encoder embeddings + simple structural features.
+
+  ![ML Pipeline](assets/ml_training_pipeline.png)
 - **Fine-tuning**: **LoRA** adapters for parameter-efficient updates (fast iteration on modest GPUs).  
 - **Splits**: Held-out by bill and year to avoid near-duplicate leakage.  
 - **Metrics**: Accuracy, macro-Precision/Recall/F1; per-class confusion matrices.
