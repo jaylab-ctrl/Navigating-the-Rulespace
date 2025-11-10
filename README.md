@@ -68,7 +68,9 @@ Capstone Project collaborated with Bloomberg Government
 
 ## 🧰 RAG Assistant (Azure AI Foundry, no-code)
 **Goal**: Let analysts paste a bill context + citation and receive a **grounded label** with supporting span.  
-**Stack**: Azure **Blob Storage** -> **AI Search** (hybrid index) -> **Text Embeddings** -> **GPT-4o** (playground) with a strict system prompt.
+**Stack**: Azure **Blob Storage** ->  **Text Embeddings** -> **AI Search** (hybrid index) -> **GPT-4o** (playground) with a strict system prompt.
+
+![RAG](assets/rag-design-pattern)
 
 **Steps**
 1. Create **Resource Group** -> **Storage Account** -> **Blob Container**; upload documents + labeled dataset.  
