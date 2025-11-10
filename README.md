@@ -27,7 +27,9 @@ Capstone Project collaborated with Bloomberg Government
    - Accepted items become silver labels. Rationales are **not used** at inference time.
 3) **LLM + expert verify**: **~35%** labeled using LLM and with **legal expert in the loop** to validate/rectify.  
 4) **Model-assisted + expert verify**: Train **Legal RoBERTa** on the first **~55%**; label the remaining **~45%** using model's prediciton which are again gone though expert verification process
-  ![Ground Truth Generation](./assets/Ground Truth Generation.png)
+
+   ![Ground Truth Generation](assets/Ground%20Truth%20Generation.png)
+
 
 5) **Class balance**: **SMOTE** on sentence embeddings + **frozen adapters** for stable training batches.
 
