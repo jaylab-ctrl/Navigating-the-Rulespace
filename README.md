@@ -44,6 +44,12 @@ Capstone Project collaborated with Bloomberg Government
 - **Splits**: Held-out by bill and year to avoid near-duplicate leakage.  
 - **Metrics**: Accuracy, macro-Precision/Recall/F1; per-class confusion matrices.
 
+  LegalBERT
+  ![LegalBERT](assets/legalbert.png)
+
+  DistilBERT
+  ![DistilBERT](assets/distilbert.png)
+  
 ---
 
 ## 📊 Key Results
