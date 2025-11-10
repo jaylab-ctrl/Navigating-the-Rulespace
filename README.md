@@ -32,10 +32,18 @@ Capstone Project collaborated with Bloomberg Government
 ---
 
 ## 🧪 Models & Training
-- **Encoders**: **LegalBERT**, **DistilBERT**.  
-- **Graph context**: **GCN** over a citation graph (nodes=citations; edges=co-mentions/cross-refs) using encoder embeddings + simple structural features.  
+- **Transformers**: **LegalBERT**, **DistilBERT**.  
+- **Graph context**: **GCN** over a citation graph (nodes=citations; edges=co-mentions) using encoder embeddings + simple structural features.  
 - **Fine-tuning**: **LoRA** adapters for parameter-efficient updates (fast iteration on modest GPUs).  
 - **Splits**: Held-out by bill and year to avoid near-duplicate leakage.  
-- **Metrics**: Accuracy, macro-Precision/Recall/F1; per-class confusion; calibration curves.
+- **Metrics**: Accuracy, macro-Precision/Recall/F1; per-class confusion matrices.
 
 ---
+
+## 📊 Key Results
+| Area | Result |
+|---|---|
+| Classification (overall) | **~95% accuracy**, **~0.93 macro-F1**, **~93% domain precision**. |
+| Comparative | LegalBERT + LoRA strongest single model; **GCN** reduces confusions in text-ambiguous cases. |
+| Analyst workflow | **−30%** manual review time on a blinded test set. |
+| RAG evaluation | **−15%** hallucinations by **Ragas** faithfulness; **−20%** p95 latency variability after prompt & retrieval tuning. |
