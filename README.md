@@ -8,7 +8,7 @@ Capstone Project collaborated with Bloomberg Government
 - **Solution**: Multi-stage ground-truth pipeline, then comparative modeling, and a lightweight chatbot configured in Azure AI Foundry.  
 - **Highlights**
   - **Label quality**: Created the ground truth labeling process - manual + LLM +  ML training
-  - **Classification**: ~95% accuracy overall; ~0.93 macro-F1 / ~93% domain precision after LoRA fine-tuning.  
+  - **Classification**: Created an end to end ML classification pipeline to compare the performance across mulitple metrics.
   - **Analyst workflow**: Helped legal analyst by reduving manual review time.
 
 
@@ -20,7 +20,7 @@ Capstone Project collaborated with Bloomberg Government
 
 ---
 
-## 🏷️ Ground-Truth Generation (multi-stage)
+## 🏷️ Ground-Truth Generation 
 1) **Expert gold**: **~20%** of corpus manually annotated by legal analysts. 
 2) **LLM seeding**: chain-of-thought prompt based classification with Meta **LLaMA** propose a label + short rationale.  
    - After generating goes thorugh a review process of expert in the loop.
@@ -47,3 +47,33 @@ Capstone Project collaborated with Bloomberg Government
 | Comparative | LegalBERT + LoRA strongest single model; **GCN** reduces confusions in text-ambiguous cases. |
 | Analyst workflow | **−30%** manual review time on a blinded test set. |
 | RAG evaluation | **−15%** hallucinations by **Ragas** faithfulness; **−20%** p95 latency variability after prompt & retrieval tuning. |
+
+
+**Model snapshot**  
+- **LegalBERT **: Best performance. Consistent performance across all performance metrics: accuracy (95%), precision (95%), recall (95%), macro-f1 score (95%)
+- **DistilBERT **: Good Performance. At ~97% of LegalBERT quality at lower latency.  
+- **GCN**: Decent performance acorss all performance metrics: accuracy (95%), precision (95%), recall (95%), macro-f1 score (95%).
+
+## 🧰 RAG Assistant (Azure AI Foundry, no-code)
+**Goal**: Let analysts paste a bill context + citation and receive a **grounded label** with supporting span.  
+**Stack**: Azure **Blob Storage** -> **AI Search** (hybrid index) -> **Text Embeddings** -> **GPT-4o** (playground) with a strict system prompt.
+
+**Steps**
+1. Create **Resource Group** -> **Storage Account** -> **Blob Container**; upload documents + labeled dataset.  
+2. Deploy **Text Embedding** model in **Azure AI Foundry**.  
+3. Create **Azure AI Search** service, connect Blob data source, chunk & vectorize, build hybrid index.  
+4. Deploy **GPT-4o** in Foundry, connect to AI Search as data source.  
+5. Author system + user prompts to: (a) map to {Authority, Amending, Definition, Exception, Precedent}, (b) return source spans, (c) abstain when unsure.  
+
+## 📄 Notes 
+1. SMOTE is used only within training batches, monitor calibration and minority-class overfitting.
+2. LLM rationales are for label creation only, never surfaced to end users.
+
+## 📂 TLDR 
+1. Built a staged labeling pipeline (LLM seeding → expert verify → model-assisted) that increased usable-label precision by ~18%. Final labeled set created with 20% expert gold, 35% LLM + expert verify, 45% model-assisted + expert verify.
+2. Fine-tuned LegalBERT, DistilBERT, and a GCN (Basic trianing SMOTE + basic adapters and LoRA adapters).
+3. RAG assistant in Azure AI Foundry wired to Azure AI Search and GPT-4o. Analysts paste a bill context + citation and receive a grounded label with source span.
+
+## 🙌 Acknowledgements
+Thanks to **Bloomberg Government** mentors and Virginia Tech faculty for guidance and evaluation support.
+"""
