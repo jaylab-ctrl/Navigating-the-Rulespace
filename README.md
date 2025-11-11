@@ -3,8 +3,20 @@ Capstone Project collaborated with Bloomberg Government
 
 
 ## 🔎 Executive Summary
+- **Problem Statement**: Legal documentation such as bills, laws, and statutes serves as the foundation for
+decision-making and policy creation for judges, legislators, and attorneys. These legal
+documents rely on connections to historical documentation through citations in a variety of
+contexts, and understanding the semantic role that each citation plays within legal
+documentation is essential for deeper legal understanding, retrieval, and analysis. To aid
+Bloomberg Government in its mission to provide navigation of complex and rapidly changing
+policies in the modern political era, I utolized natural language processing (NLP)
+models, to extract, classify, and visualize the semantic roles that citations play. After initial research and literature
+review, a final citation context taxonomy was created with context types of Amending, Definition,
+Precedent, Exception, and Authority. Utilizing a Bloomberg-provided database of 108 bills with
+over 17,000 citations, we conducted a comparative analysis between three industry-standard legal
+classification models, including Graph Convolutional Networks (GCNs) and Transformer-based
+models LegalBERT and DistilBERT.
 - **Data**: Bloomberg Government provided a curated set of congressional bills and inline citations (≈108 bills, 17k+ citations).  
-- **Challenge**: No gorund truth labels; strong class imbalance.  
 - **Solution**: Multi-stage ground-truth pipeline, then comparative modeling, and a lightweight chatbot configured in Azure AI Foundry.  
 - **Highlights**
   - **Label quality**: Created the ground truth labeling process - manual + LLM +  ML training
