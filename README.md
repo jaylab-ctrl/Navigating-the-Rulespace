@@ -3,19 +3,24 @@ Capstone Project collaborated with Bloomberg Government
 
 
 ## 🔎 Executive Summary
-- **Problem Statement**: Legal documentation such as bills, laws, and statutes serves as the foundation for
-decision-making and policy creation for judges, legislators, and attorneys. These legal
-documents rely on connections to historical documentation through citations in a variety of
-contexts, and understanding the semantic role that each citation plays within legal
-documentation is essential for deeper legal understanding, retrieval, and analysis. To aid
-Bloomberg Government in its mission to provide navigation of complex and rapidly changing
-policies in the modern political era, I utolized natural language processing (NLP)
-models, to extract, classify, and visualize the semantic roles that citations play. After initial research and literature
-review, a final citation context taxonomy was created with context types of Amending, Definition,
-Precedent, Exception, and Authority. Utilizing a Bloomberg-provided database of 108 bills with
-over 17,000 citations, we conducted a comparative analysis between three industry-standard legal
-classification models, including Graph Convolutional Networks (GCNs) and Transformer-based
-models LegalBERT and DistilBERT.
+- **Problem Statement**:
+    - Context: Legal documents—bills, laws, statutes—are core to judicial decisions, legislative drafting, and legal advocacy.
+
+    - Problem: These documents depend on citations to prior authorities, but current tools indicate where citations occur, not what role they play in the argument.
+      
+    - Gap: The semantic function of a citation (e.g., support, limitation, contrast, extension, exception) is rarely captured, making deep understanding and retrieval difficult at scale.
+      
+    - Impact of the Gap: Researchers must manually interpret citation intent, slowing analysis, obscuring precedent relationships, and increasing the risk of missed nuances.
+      
+    - Why Now: Rapidly evolving policy landscapes amplify the need for precise, explainable links between new texts and historical authorities.
+      
+    - Users Affected: Judges, legislators, attorneys, policy analysts, and legal researchers who rely on accurate, timely interpretation of authorities.
+      
+    - Objective: Identify and label the semantic role of each citation within legal texts to reveal argument structure and precedent usage.
+      
+    - Outcome: Faster, more accurate retrieval and analysis; clearer navigation of complex policy; improved summaries and decision support.
+
+Alignment: Directly supports Bloomberg Government’s mission to help users navigate complex, fast-changing policy environments with confidence.
 - **Data**: Bloomberg Government provided a curated set of congressional bills and inline citations (≈108 bills, 17k+ citations).  
 - **Solution**: Multi-stage ground-truth pipeline, then comparative modeling, and a lightweight chatbot configured in Azure AI Foundry.  
 - **Highlights**
