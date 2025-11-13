@@ -33,7 +33,7 @@ Alignment: Directly supports Bloomberg Government’s mission to help users navi
 - **Source**: Congressional bills with inline citations provided by sponsor.  
 - **Target Labels (5)**: `Authority`, `Amending`, `Definition`, `Exception`, `Precedent`.  
 - **Schema**: `(bill_id, section_id, citation_text, context_pre, context, context_post, jurisdiction, year, metadata…)`  
-- **Normalization**: regex cleanup, unicode fixes, citation canonicalization, and 2–3 sentence context windows.
+- **Normalization**: regex cleanup, unicode fixes, citation normalization, etc.
 
 ---
 
